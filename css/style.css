@@ -1,3 +1,86 @@
-h1 {
-    color: red;
+nav{border: 2px solid #333333;
+    background-color: #ffffff;
+    margin-bottom: 30px;
+    padding: 10px 0;
+}
+
+nav ul{list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a{text-decoration: none;
+      color:#333;
+      font-weight: bold;
+      padding: 5px 10px;
+}
+
+nav a:hover, nav a.active{
+    color: #0b7ef9;
+}
+
+.content-box{
+    background-color: #ffffff;
+    padding:20px 0;
+    min-height: 300px;
+}
+
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden; 
+}
+
+/* 🌟丸をつけた部分にボカシ背景を作るための設定 */
+.content-box {
+    position: relative; /* 背景の基準にする */
+    background-color: #ffffff; /* 白色の背景 */
+    padding: 20px 0;
+    min-height: 300px;
+    overflow: hidden; /* ボカしが箱からはみ出さないようにガード */
+}
+
+/* 🌟新演出：背景にボカした画像を敷き詰める特殊な設定 */
+.content-box::before {
+    content: "";
+    position: absolute;
+    top: -10%; /* 画像を少し上に広げる */
+    left: -10%; /* 画像を少し左に広げる */
+    width: 120%; /* 画像を少し大きくする */
+    height: 120%; /* 画像を少し大きくする */
+    background-image: url('aina_background.jpg'); /* 🌟背景に使う画像（1枚目の衣装の赤色がおすすめです） */
+    background-size: cover; /* 箱全体に広げる */
+    background-position: center; /* 中央に配置 */
+    filter: blur(20px); /* 🌟ここでガッツリ20px分ボカします！ */
+    opacity: 0.3; /* 背景が主張しすぎないように薄くします */
+    z-index: 0; /* スライド画像より後ろに配置 */
+}
+
+/* スライドの表示窓（中央の画像サイズ） */
+.slider-container {
+    position: relative;
+    z-index: 1; /* 背景より前に出す */
+    width: 100%;
+    max-width: 1000px; /* 🌟メイン画像のサイズ（お好みで調整してね） */
+    overflow: visible; /* 左右のチラ見せを許可 */
+    margin: 0 auto;
+    display: block;
+}
+
+.slider-wrapper {
+    display: flex;
+}
+
+/* 各画像はクッキリ見せる設定 */
+.slide-img {
+    width: 100%;
+    flex-shrink: 0; 
+    height: auto;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 30px; /* 画像同士のスキマ */
 }

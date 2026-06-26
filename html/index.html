@@ -1,11 +1,70 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <title>音楽</title>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-  </head>
-  <body>
-    <h1>name</h1>
-  </body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>アーティスト紹介サイト</title>
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+    </head>
+    <body>
+        <header>
+            <h1>アイナ・ジ・エンド</h1>
+            <nav>
+                <ul>
+                    <li><a href="aina.html" class="active">ホーム</a></li>
+                    <li><a href="aina-intro.html" >紹介</a></li>
+                    <li><a href="aina-live.html" >ライブ</a></li>
+                    <li><a href="aina-songs.html" >楽曲</a></li>
+                </ul>
+            </nav>    
+        </header>
+        
+        <main>
+            <div class="content-box">
+                <div class="slider-container">
+                    <div class="slider-wrapper">
+                        <img src="https://hominis.media/2024/11/images/01aina3rdal.jpg" alt="アーティスト画像" class="slide-img">
+
+                    <img src="https://img.cf.47news.jp/public/photo/17c00cb5daa9ac526c85c1a4ab681ce7/photo.jpg" alt="アイナ・ジ・エンド1" class="slide-img">
+                    <img src="https://ainatheend.jp/assets/img/top/img_mainvisual-2604.jpg" alt="ライブツアーPICNIC" class="slide-img">
+                    <img src="https://hominis.media/2024/11/images/01aina3rdal.jpg" alt="アーティスト画像" class="slide-img">
+        
+                    <img src="https://img.cf.47news.jp/public/photo/17c00cb5daa9ac526c85c1a4ab681ce7/photo.jpg" alt="アイナ・ジ・エンド1" class="slide-img" >
+            </div></div></div></main>
+        <script>
+            const wrapper = document.querySelector('.slider-wrapper');
+            const slides = document.querySelectorAll('.slide-img');
+        
+            // 🌟初期位置を「1」（本物の1枚目）に設定します
+            let currentIndex = 1; 
+            const gap = 30; // 画像の隙間 (30px)
+
+            // 🌟ページが開いた瞬間に、本物の1枚目が真ん中に来るように位置をズラす初期化関数
+            function initSlider() {
+                wrapper.style.transition = 'none';
+                wrapper.style.transform = `translateX(calc(-${currentIndex * 100}% - ${currentIndex * gap}px))`;
+            }
+            // 起動する
+            initSlider();
+
+            function nextSlide() {
+                currentIndex++;
+            
+                wrapper.style.transition = 'transform 0.5s ease-in-out';
+                wrapper.style.transform = `translateX(calc(-${currentIndex * 100}% - ${currentIndex * gap}px))`;
+
+                // 一番最後のコピー（1枚目）にたどり着いた時の処理
+                if (currentIndex === slides.length - 1) {
+                    setTimeout(() => {
+                        wrapper.style.transition = 'none'; 
+                        currentIndex = 1; // 本物の1枚目の位置に一瞬でワープ
+                    wrapper.style.transform = `translateX(calc(-${currentIndex * 100}% - ${currentIndex * gap}px))`;
+                    }, 500);
+                }
+            }
+
+            // 5秒ごとにスライド
+            setInterval(nextSlide, 4000);
+        </script>
+    </body>
 </html>
