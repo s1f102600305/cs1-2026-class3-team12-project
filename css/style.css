@@ -1,3 +1,22 @@
+body{
+    font-family: "Helevetica Neue", Arial, sans-serif;
+    background-color: #fdf9f9;
+    color:#e10e0e;
+    margin: 0;
+    padding: 20px;
+}
+
+header, main{
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1{
+    font-size: 2rem;
+    margin-bottom: 20px; 
+}
+
 nav{border: 2px solid #333333;
     background-color: #ffffff;
     margin-bottom: 30px;
